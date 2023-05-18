@@ -25,7 +25,7 @@ import {
 
 export const VERSION = "0.1.1";
 const LOCAL_PATH = Deno.env.get("LOCAL_PLUGIN")
-   ? "./target/debug/libmashin_provider_starter.dll"
+   ? "./target/debug/mashin_provider_starter.dll"
    : await globalThis.__mashin.downloadProvider(
       "github",
       new URL(
@@ -34,15 +34,6 @@ const LOCAL_PATH = Deno.env.get("LOCAL_PLUGIN")
       ).toString()
    );
 
-/**
-  * This is my resource config
-  **/
-export interface MyResourceConfig extends Inputs {
-/**
-  * My config key
-  **/
-  myKey: string | undefined | null;
-}
 export interface MyResourceOutputs extends Outputs {
 /**
   * My resource key
@@ -71,6 +62,15 @@ export class MyResource<T extends Lowercase<string>> extends MashinResource<MyRe
 
 export interface MashinProviderStarterConfig extends Inputs {
   version: number;
+}
+/**
+  * This is my resource config
+  **/
+export interface MyResourceConfig extends Inputs {
+/**
+  * My config key
+  **/
+  myKey: string | undefined | null;
 }
 
 /**
