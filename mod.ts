@@ -25,7 +25,7 @@ import {
 
 export const VERSION = "0.1.1";
 const LOCAL_PATH = Deno.env.get("LOCAL_PLUGIN")
-   ? "./target/debug/libmashin_provider_starter.dylib"
+   ? "./target/debug/libmashin_provider_starter.dll"
    : await globalThis.__mashin.downloadProvider(
       "github",
       new URL(
